@@ -126,5 +126,5 @@ def main():
 
 
 if __name__ == '__main__':
-    ot_key = load_otkey()
+    ot_key = "AAhJbWPz-cx3fP3N5-p9ukxcUc-LTpZPkjN"#load_otkey()
     main()

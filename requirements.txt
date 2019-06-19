@@ -1,4 +1,4 @@
-requests==2.21.0
+requests
 docopt==0.6.2
 onetoken==0.2.190218
 aiohttp==3.5.4

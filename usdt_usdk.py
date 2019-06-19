@@ -8,12 +8,12 @@ import pandas as pd
 from demo_private import api_call
 import time,os,math
 
-PRODUCTION = os.getenv( 'PRODUCTION' )
+PRODUCTION = 'TEST'#os.getenv( 'PRODUCTION' )
 
 print( 'PRODUCTION:', PRODUCTION )
 
 if PRODUCTION:
-    account = os.getenv( 'ACCOUNT' )
+    account = '13918141439'#os.getenv( 'ACCOUNT' )
 else:
     account = os.getenv( 'MOCK' )
 
@@ -62,18 +62,18 @@ def sell(price ,amount,contract='okex/usdt.usdk'):
     print( r.json() )
 
 def get_orders():
-    #print( '查询挂单' )
+    print( '查询挂单' )
     r = api_call( 'GET', '/{}/orders'.format( account ) )
-    #pprint( r.json(), width=100 )
+    print( r.json(), width=100 )
 
     orders = pd.DataFrame(r.json(),columns=['contract','exchange_oid','bs','entrust_amount','entrust_price','status'])
     return orders
 
 def get_okex_usdt_usdk_orders():
     orders = get_orders()
-    # print(orders)
+    print(orders)
     okex_usdt_usdk_orders = orders[orders.contract == 'okex/usdt.usdk']
-    # print(okex_usdt_usdk_orders)
+     print(okex_usdt_usdk_orders)
     return okex_usdt_usdk_orders
 
 def cancle_orders(exchange_oids):
